@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app>
+    <head>
+        <script src="angular-1.0.1.min.js"></script>
+		<script src="controler.js"></script>
+    </head>
+    <body ng-app>
+        1+2 = {{ 1 + 2*2}}
+		<input  type="text" ng-model="query">
+		<select ng-model="orderProp">
+  <option value="name">Alphabetical</option>
+  <option value="age">Newest</option>
+</select>
+		<div ng-controller="PhoneListCtrl">
+			 <ul>
+				<li ng-repeat="phone in phones|filter:query | orderBy:orderProp">
+				  {{phone.name}}
+				<p>{{phone.snippet}}</p>
+				</li>
+			</ul>
+		</div>
+    </body>
+</html>
